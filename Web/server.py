@@ -14,12 +14,12 @@ scaler_X = None
 scaler_y = None
 model_loaded = False
 
+# 모델 및 스케일러를 로드하는 함수
 def load_model_and_scalers():
-    """모델과 스케일러를 로드하는 함수"""
     global W, b, scaler_X, scaler_y, model_loaded
     
     try:
-        print("모델 로딩 시작...")
+        print("모델 로딩 시작")
         
         # 1. 가중치와 편향 초기화
         W = tf.Variable(tf.random.normal([4, 1], dtype=tf.float64), name="weight")
@@ -37,7 +37,7 @@ def load_model_and_scalers():
             ckpt = tf.train.Checkpoint(W=W, b=b)
             ckpt.restore(checkpoint).expect_partial()
         else:
-            # 구버전 체크포인트 시도
+            # 구버전
             checkpoint_path = os.path.join(checkpoint_dir, 'saved.ckpt-1')
             if os.path.exists(checkpoint_path + '.index'):
                 print(f"구버전 체크포인트 사용: {checkpoint_path}")
@@ -51,11 +51,11 @@ def load_model_and_scalers():
         scaler_y_path = os.path.join(checkpoint_dir, 'scaler_y.pkl')
         
         if os.path.exists(scaler_X_path) and os.path.exists(scaler_y_path):
-            print("저장된 스케일러를 로드합니다...")
+            print("저장된 스케일러를 로드합니다")
             scaler_X = joblib.load(scaler_X_path)
             scaler_y = joblib.load(scaler_y_path)
         else:
-            print("스케일러 파일이 없습니다. 데이터에서 새로 생성합니다...")
+            print("스케일러 파일이 없습니다 데이터에서 새로 생성합니다")
             # 학습 데이터에서 스케일러 생성
             import pandas as pd
             from sklearn.preprocessing import StandardScaler
@@ -71,7 +71,7 @@ def load_model_and_scalers():
             scaler_y.fit(y)
         
         model_loaded = True
-        print("모델과 스케일러 로드 완료!")
+        print("모델과 스케일러 로드 완료")
         
         # 로드된 모델 정보 출력
         print(f"가중치 형태: {W.shape}")
@@ -95,7 +95,7 @@ def predict():
     
     if request.method == 'POST':
         if not model_loaded:
-            error_message = "모델이 로드되지 않았습니다. 먼저 모델을 학습시켜주세요."
+            error_message = "모델이 로드되지 않았습니다 먼저 모델을 학습시켜주세요"
         else:
             try:
                 # 입력값 받기
@@ -106,11 +106,11 @@ def predict():
                 
                 # 입력값 검증
                 if min_temp > max_temp:
-                    error_message = "최저 기온은 최고 기온보다 높을 수 없습니다."
+                    error_message = "최저 기온은 최고 기온보다 높을 수 없습니다"
                 elif avg_temp < min_temp or avg_temp > max_temp:
-                    error_message = "평균 기온은 최저와 최고 기온 사이여야 합니다."
+                    error_message = "평균 기온은 최저와 최고 기온 사이여야 합니다"
                 elif rain_fall < 0:
-                    error_message = "강수량은 음수일 수 없습니다."
+                    error_message = "강수량은 음수일 수 없습니다"
                 else:
                     # 입력 데이터를 배열로 변환
                     data = np.array([[avg_temp, min_temp, max_temp, rain_fall]], dtype=np.float64)
@@ -121,7 +121,7 @@ def predict():
                     # 예측
                     prediction_scaled = hypothesis(data_scaled).numpy()
                     
-                    # 역정규화 (실제 가격으로 변환)
+                    # 역정규화 
                     prediction = scaler_y.inverse_transform(prediction_scaled)
                     price = int(prediction[0][0])
                     
@@ -129,10 +129,10 @@ def predict():
                     print(f"예측 가격: {price}원")
 
             except ValueError:
-                error_message = "올바른 숫자를 입력해주세요."
+                error_message = "올바른 숫자를 입력해주세요"
             except Exception as e:
                 print(f"Error occurred: {e}")
-                error_message = "예측 중 오류가 발생했습니다."
+                error_message = "예측 중 오류가 발생했습니다"
 
     return render_template('index.html', price=price, error=error_message)
 
@@ -141,7 +141,7 @@ def predict():
 def api_predict():
     """JSON API for predictions"""
     if not model_loaded:
-        return {'error': '모델이 로드되지 않았습니다.'}, 500
+        return {'error': '모델이 로드되지 않았습니다'}, 500
     
     try:
         data = request.get_json()
@@ -153,11 +153,11 @@ def api_predict():
         
         # 입력값 검증
         if min_temp > max_temp:
-            return {'error': '최저 기온은 최고 기온보다 높을 수 없습니다.'}, 400
+            return {'error': '최저 기온은 최고 기온보다 높을 수 없습니다'}, 400
         elif avg_temp < min_temp or avg_temp > max_temp:
-            return {'error': '평균 기온은 최저와 최고 기온 사이여야 합니다.'}, 400
+            return {'error': '평균 기온은 최저와 최고 기온 사이여야 합니다'}, 400
         elif rain_fall < 0:
-            return {'error': '강수량은 음수일 수 없습니다.'}, 400
+            return {'error': '강수량은 음수일 수 없습니다'}, 400
         
         # 예측
         input_data = np.array([[avg_temp, min_temp, max_temp, rain_fall]], dtype=np.float64)
