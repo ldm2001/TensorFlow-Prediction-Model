@@ -34,7 +34,7 @@
 5. 성능 향상 (SGD -> Adam)
 6. 플라스크 개선 (엔드포인트 추가, 메세지 추가)
 
-![alt text](<image/APP Main Page.jpeg>)
+![APP](https://github.com/user-attachments/assets/f12b9cf1-7d1b-48f7-a2ce-2d2311a947d1)
 
 # 게시판으로 마트나 시장 가격 확인 후 커뮤니케이션 공간 및 홍보 제작
 ## Xampp, 비쥬얼 스튜디오 코드(PHP), SQLyog
@@ -115,4 +115,5 @@
 
 - 댓글 목록
 
-![alt text](<image/PHP Board.jpeg>)
+![APP](https://github.com/user-attachments/assets/866c4725-4c75-4c6d-bae1-31a369ccfd06)
+
