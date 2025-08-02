@@ -1,0 +1,55 @@
+# 데이터베이스 생성
+create database `memsite`;
+
+# 데이터베이스 조회
+SHOW DATABASES;
+
+# 데이터베이스 드랍
+DROP DATABASE `member`;
+
+# 사용할 데이터베이스 선택
+USE `memsite`;
+
+# 유저 테이블 생성
+CREATE TABLE `member` (
+`idx` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+`id` VARCHAR(100) DEFAULT '',
+`name` VARCHAR(100) DEFAULT '',
+`email` VARCHAR(100) DEFAULT '',
+`password` VARCHAR(100) DEFAULT '',
+`zipcode` CHAR(5) DEFAULT '',
+`addr1` VARCHAR(255) DEFAULT '',
+`addr2` VARCHAR(255) DEFAULT '',
+`photo` VARCHAR(100) DEFAULT '',
+`create_at` DATETIME,
+`ip` VARCHAR(20) DEFAULT '',
+PRIMARY KEY(idx),
+UNIQUE INDEX `id` (`id`) USING BTREE
+);
+
+# 게시판 테이블
+CREATE TABLE board(
+`idx` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+`bcode` CHAR(6) DEFAULT '' COMMENT '게시판 코드',
+`id` VARCHAR(50) DEFAULT '' COMMENT '아이디',
+`name` VARCHAR(50) DEFAULT '' COMMENT '이름',
+`subject` VARCHAR(255) DEFAULT '' COMMENT '제목',
+`content` MEDIUMTEXT COMMENT '내용',
+`hit` INTEGER UNSIGNED DEFAULT 0 COMMENT '조회 수',
+`ip` VARCHAR(30) DEFAULT '' COMMENT '글쓴이 ip',
+`create_at` DATETIME NOT NULL COMMENT '글 등록일시',
+INDEX `bcode`(`bcode`),
+INDEX `id`(`id`),
+PRIMARY KEY(idx)
+);
+
+# 댓글 테이블 
+CREATE TABLE `comment`(
+idx INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+pidx INTEGER NOT NULL,
+id VARCHAR(50) DEFAULT '' COMMENT '글작성자',
+content TEXT COMMENT '댓글내용',
+create_at DATETIME NOT NULL,
+ip VARCHAR(30),
+PRIMARY KEY(idx)
+);
