@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Apple</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="./css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="./css/style.min.css" rel="stylesheet">
+  <!-- 나눔 바른 고딕 웹 폰트 적용하기 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css">
+  <style type="text/css">
+
+    html,
+    body,
+    header,
+    .carousel {
+      height: 100%;
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+         
+              background: #1C2331!important;
+            }
+        }
+
+    .hangul {
+        font-family: 'Nanum Barun Gothic' !important;
+    }
+    
+    .h3 mb-3{
+      text-align: center;
+    }
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1050;
+      top: 0;
+      right: 0;
+      background-color: #484646;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+      white-space: noWrap;
+      overflow-x: hidden;
+    }
+    .sidebar a:hover {
+      color: white;
+      font-size: bold;
+    }
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    #menu-icon {
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+    .submenu {
+      display: none;
+      font-size: 16px;
+      padding-left: 50px;
+      font-weight: 400;
+    }
+    .submenu a{
+      font-size: 16px;
+    }
+    .submenu a:hover{
+      text-decoration: underline;
+    }
+    /* New style to hide submenu items when sidebar is closed */
+    .sidebar.closed .submenu {
+      display: none !important; /* Hide submenu items when sidebar is closed */
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#" target="_blank">
+        <strong class="hangul">APP</strong>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Right -->
+        <span id="menu-icon" onclick="openNav()">&#9776;</span>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+   <!-- Sidebar -->
+   <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" onclick="toggleSubmenu('boardSubmenu')">게시판</a>
+    <div id="boardSubmenu" class="submenu">
+      <a href="http://localhost:8088/project/member/login.php">로그인</a>
+      <a href="http://localhost:8088/project/member/stipulation.php">회원가입</a>
+    </div>
+    <a href="javascript:void(0)" onclick="toggleSubmenu('salesSubmenu')">판매사이트</a>
+    <div id="salesSubmenu" class="submenu">
+      <a href="http://hi-apple.co.kr/index.html?ref=smartphone">청송하이크린사과</a>
+      <a href="https://csmall.cyso.co.kr/">청송몰</a>
+      <a href="https://www.cyso.co.kr/shop/item.php?it_id=1615268011">사이소</a>
+      <a href="https://www.solgik.com/m2/goods/view.php?goodsno=352&category=009003">솔직한 농부</a>
+      <a href="https://sanencheong.com/goods/view?no=29">산엔청소핑몰</a>
+    </div>
+  </div>
+
+
+  <!--Carousel Wrapper-->
+  <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-1z" data-slide-to="0"></li>
+    </ol>
+    <!--/.Indicators-->
+
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+      <!--First slide-->
+      <div class="carousel-item active">
+        <div class="view">
+
+      <!--IMG source-->
+      <img src="../static/img/apple1.jpg" width="1800px">
+
+
+          <!-- Mask & flexbox options-->
+          <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="text-center white-text mx-5 wow fadeIn">
+              <h1 class="mb-4">
+                <strong style="font-family: 'Nanum Barun Gothic'; color: white;">Apple Price Prediction</strong>
+              </h1>
+
+              <p style="font-family: 'Nanum Barun Gothic'; color: white;">기온 및 강수량을 활용하여 사과 가격을 측정하는 사이트입니다.
+              </p>
+
+              <p class="mb-4 d-none d-md-block">
+                <strong style="color: white;">기상자료개방포털과 KAMIS 농산물 유통정보사이트의 데이터를 활용하여 사과 가격을 예측할 수 있습니다.</strong>
+              </p>
+
+              <a target="_blank" href="https://data.kma.go.kr/cmmn/main.do" class="btn btn-outline-white btn-lg" style="color: white;">기상자료개방포털
+              </a>
+              <a target="_blank" href="https://www.kamis.or.kr/customer/main/main.do" class="btn btn-outline-white btn-lg" style="color: white;">KAMIS 농상물유통정보
+              </a>
+            </div>
+            <!-- Content -->
+
+          </div>
+          <!-- Mask & flexbox options-->
+
+        </div>
+      </div>
+      <!--/First slide-->
+
+          <!-- Mask & flexbox options-->
+          <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="text-center white-text mx-5 wow fadeIn">
+              <h1 class="mb-4">
+                <strong style="font-family: 'Nanum Barun Gothic'; color: white;">사과 장터</strong>
+              </h1>
+
+              <p style="font-family: 'Nanum Barun Gothic'; color: white;">기온 및 강수량을 활용하여 사과 가격을 측정하는 사이트입니다.
+              </p>
+            </div>
+            <!-- Content -->
+
+          </div>
+          <!-- Mask & flexbox options-->
+
+        </div>
+      </div>
+ 
+
+    </div>
+    <!--/.Slides-->
+
+    <!--Controls-->
+    
+    <!--/.Controls-->
+
+
+  </div>
+  <!--/.Carousel Wrapper-->
+
+  <!--Main layout-->
+  <main>
+    <div class="container">
+
+      <!--Section: Main info-->
+      <section class="mt-5 wow fadeIn">
+
+      </section>
+      <!--Section: Main info-->
+
+      <hr class="my-5">
+
+      <!--Section: Main features & Quick Start-->
+      <section>
+
+        <h3 class="h3 text-center mb-5" style="font-family: 'Nanum Barun Gothic'">사과 가격 예측</h3>
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-12 px-4">
+
+            <form action="/" method="post">
+              <!-- Default form group -->
+
+                  <!-- Default input -->
+                  <div class="form-group">
+                      <label style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput"><strong>평균 기온</strong></label>
+                      <input style="font-family: 'Nanum Barun Gothic'" type="text" name="avg_temp" class="form-control" id="formGroupExampleInput" placeholder="평균기온을 입력하세요.">
+                  </div>
+                  <!-- Default input -->
+                  <div class="form-group">
+                      <label style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput"><strong>최저기온</strong></label>
+                      <input style="font-family: 'Nanum Barun Gothic'" type="text" name="min_temp" class="form-control" id="formGroupExampleInput" placeholder="최저기온을 입력하세요.">
+                  </div>
+                  <!-- Default input -->
+                  <div class="form-group">
+                      <label style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput"><strong>최고 기온</strong></label>
+                      <input style="font-family: 'Nanum Barun Gothic'" type="text" name="max_temp" class="form-control" id="formGroupExampleInput" placeholder="최고기온을 입력하세요.">
+                  </div>
+                  <!-- Default input -->
+                  <div class="form-group">
+                      <label style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput"><strong>강수량</strong></label>
+                      <input style="font-family: 'Nanum Barun Gothic'" type="text" name="rain_fall" class="form-control" id="formGroupExampleInput" placeholder="강수량을 입력하세요.">
+                  </div>
+              <!-- Default form group -->
+              <button style="font-family: 'Nanum Barun Gothic' !important;" type="submit" class="btn btn-primary btn-md pull-right">확인</button>
+
+            </form>
+
+          </div>
+          <!--/Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-12">
+
+            <p class="h5 text-center mb-4" style="font-family: 'Nanum Barun Gothic'">사과 가격 예측 결과</p>
+            {% if price %}
+              <h5 class="text-center mt-3">예측된 사과 가격은 <strong>{{ price }}원</strong>입니다.</h5>
+            {% endif %}
+          </div>
+          <!--/Grid column-->
+
+        </div>
+        <!--/Grid row-->
+
+      </section>
+      <!--Section: Main features & Quick Start-->
+
+    </div>
+  </main>
+  
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    <!--Call to action-->
+    <div class="pt-4">
+      <a class="btn btn-outline-white" href="https://github.com/ldm2001/Apple-Project" target="_blank" role="button">LET'S GO GITHUB
+        <i class="fa fa-graduation-cap ml-2"></i>
+      </a>
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-1">
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      Copyright &copy; 2024 All Rights Reserved by Lee Dong Min
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
+
+  <!-- SCRIPTS -->
+  <!-- Bootstrap core CSS -->
+  <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{{url_for('static', filename='css/mdb.min.css')}}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{{url_for('static', filename='css/style.min.css')}}" rel="stylesheet">
+
+  <!-- JQuery -->
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{{url_for('static', filename='js/mdb.min.js')}}"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    
+    // Animations initialization
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("menu-icon").style.display = "none";
+    }
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("menu-icon").style.display = "block";
+      
+    }
+    function toggleSubmenu(id) {
+      var submenu = document.getElementById(id);
+      if (submenu.style.display === "block") {
+        submenu.style.display = "none";
+      } else {
+        submenu.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
