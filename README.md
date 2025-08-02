@@ -36,7 +36,7 @@
 
 ![APP](https://github.com/user-attachments/assets/f12b9cf1-7d1b-48f7-a2ce-2d2311a947d1)
 
-# 게시판으로 마트나 시장 가격 확인 후 커뮤니케이션 공간 및 홍보 제작
+# 커뮤니케이션 공간 및 홍보 제작
 ## Xampp, 비쥬얼 스튜디오 코드(PHP), SQLyog
 
 - 회원가입시 약관동의
