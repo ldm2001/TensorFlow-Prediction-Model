@@ -115,5 +115,6 @@
 
 - 댓글 목록
 
-![APP](https://github.com/user-attachments/assets/866c4725-4c75-4c6d-bae1-31a369ccfd06)
+![Board](https://github.com/user-attachments/assets/b4b7e7fb-5ad5-4959-be27-ae428b0030c5)
+
 
